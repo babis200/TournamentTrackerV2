@@ -40,9 +40,9 @@ namespace TrackerUI
             this.AddTeamButton = new System.Windows.Forms.Button();
             this.CreatePrizeButton = new System.Windows.Forms.Button();
             this.TeamsPlayersLabel = new System.Windows.Forms.Label();
-            this.TournamentPlayersListBox = new System.Windows.Forms.ListBox();
-            this.DeleteTeamButton = new System.Windows.Forms.Button();
-            this.DeletePrize = new System.Windows.Forms.Button();
+            this.TeamMembersListBox = new System.Windows.Forms.ListBox();
+            this.RemoveTeamButton = new System.Windows.Forms.Button();
+            this.RemovePrize = new System.Windows.Forms.Button();
             this.PrizesListBox = new System.Windows.Forms.ListBox();
             this.PrizesLabel = new System.Windows.Forms.Label();
             this.CreateTournamentButton = new System.Windows.Forms.Button();
@@ -133,6 +133,7 @@ namespace TrackerUI
             this.CreateNewLink.TabIndex = 7;
             this.CreateNewLink.TabStop = true;
             this.CreateNewLink.Text = "Create New";
+            this.CreateNewLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreateNewLink_LinkClicked);
             // 
             // AddTeamButton
             // 
@@ -144,6 +145,7 @@ namespace TrackerUI
             this.AddTeamButton.TabIndex = 8;
             this.AddTeamButton.Text = "Add Team";
             this.AddTeamButton.UseVisualStyleBackColor = true;
+            this.AddTeamButton.Click += new System.EventHandler(this.AddTeamButton_Click);
             // 
             // CreatePrizeButton
             // 
@@ -155,6 +157,7 @@ namespace TrackerUI
             this.CreatePrizeButton.TabIndex = 9;
             this.CreatePrizeButton.Text = "Create Prize";
             this.CreatePrizeButton.UseVisualStyleBackColor = true;
+            this.CreatePrizeButton.Click += new System.EventHandler(this.CreatePrizeButton_Click);
             // 
             // TeamsPlayersLabel
             // 
@@ -167,38 +170,40 @@ namespace TrackerUI
             this.TeamsPlayersLabel.TabIndex = 10;
             this.TeamsPlayersLabel.Text = "Teams / Players";
             // 
-            // TournamentPlayersListBox
+            // TeamMembersListBox
             // 
-            this.TournamentPlayersListBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TournamentPlayersListBox.FormattingEnabled = true;
-            this.TournamentPlayersListBox.ItemHeight = 22;
-            this.TournamentPlayersListBox.Location = new System.Drawing.Point(624, 95);
-            this.TournamentPlayersListBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TournamentPlayersListBox.Name = "TournamentPlayersListBox";
-            this.TournamentPlayersListBox.Size = new System.Drawing.Size(352, 114);
-            this.TournamentPlayersListBox.TabIndex = 11;
+            this.TeamMembersListBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TeamMembersListBox.FormattingEnabled = true;
+            this.TeamMembersListBox.ItemHeight = 22;
+            this.TeamMembersListBox.Location = new System.Drawing.Point(624, 95);
+            this.TeamMembersListBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TeamMembersListBox.Name = "TeamMembersListBox";
+            this.TeamMembersListBox.Size = new System.Drawing.Size(352, 114);
+            this.TeamMembersListBox.TabIndex = 11;
             // 
-            // DeleteTeamButton
+            // RemoveTeamButton
             // 
-            this.DeleteTeamButton.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteTeamButton.Location = new System.Drawing.Point(1001, 95);
-            this.DeleteTeamButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.DeleteTeamButton.Name = "DeleteTeamButton";
-            this.DeleteTeamButton.Size = new System.Drawing.Size(160, 76);
-            this.DeleteTeamButton.TabIndex = 12;
-            this.DeleteTeamButton.Text = "Delete Selected";
-            this.DeleteTeamButton.UseVisualStyleBackColor = true;
+            this.RemoveTeamButton.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemoveTeamButton.Location = new System.Drawing.Point(1001, 95);
+            this.RemoveTeamButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.RemoveTeamButton.Name = "RemoveTeamButton";
+            this.RemoveTeamButton.Size = new System.Drawing.Size(160, 76);
+            this.RemoveTeamButton.TabIndex = 12;
+            this.RemoveTeamButton.Text = "Remove Selected";
+            this.RemoveTeamButton.UseVisualStyleBackColor = true;
+            this.RemoveTeamButton.Click += new System.EventHandler(this.RemoveTeamButton_Click);
             // 
-            // DeletePrize
+            // RemovePrize
             // 
-            this.DeletePrize.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeletePrize.Location = new System.Drawing.Point(1001, 343);
-            this.DeletePrize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.DeletePrize.Name = "DeletePrize";
-            this.DeletePrize.Size = new System.Drawing.Size(160, 76);
-            this.DeletePrize.TabIndex = 15;
-            this.DeletePrize.Text = "Delete Selected";
-            this.DeletePrize.UseVisualStyleBackColor = true;
+            this.RemovePrize.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemovePrize.Location = new System.Drawing.Point(1001, 343);
+            this.RemovePrize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.RemovePrize.Name = "RemovePrize";
+            this.RemovePrize.Size = new System.Drawing.Size(160, 76);
+            this.RemovePrize.TabIndex = 15;
+            this.RemovePrize.Text = "Remove Selected";
+            this.RemovePrize.UseVisualStyleBackColor = true;
+            this.RemovePrize.Click += new System.EventHandler(this.RemovePrize_Click);
             // 
             // PrizesListBox
             // 
@@ -232,6 +237,7 @@ namespace TrackerUI
             this.CreateTournamentButton.TabIndex = 16;
             this.CreateTournamentButton.Text = "Create Tournament";
             this.CreateTournamentButton.UseVisualStyleBackColor = true;
+            this.CreateTournamentButton.Click += new System.EventHandler(this.CreateTournamentButton_Click);
             // 
             // CreateTournamentForm
             // 
@@ -240,11 +246,11 @@ namespace TrackerUI
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1205, 684);
             this.Controls.Add(this.CreateTournamentButton);
-            this.Controls.Add(this.DeletePrize);
+            this.Controls.Add(this.RemovePrize);
             this.Controls.Add(this.PrizesListBox);
             this.Controls.Add(this.PrizesLabel);
-            this.Controls.Add(this.DeleteTeamButton);
-            this.Controls.Add(this.TournamentPlayersListBox);
+            this.Controls.Add(this.RemoveTeamButton);
+            this.Controls.Add(this.TeamMembersListBox);
             this.Controls.Add(this.TeamsPlayersLabel);
             this.Controls.Add(this.CreatePrizeButton);
             this.Controls.Add(this.AddTeamButton);
@@ -277,9 +283,9 @@ namespace TrackerUI
         private System.Windows.Forms.Button AddTeamButton;
         private System.Windows.Forms.Button CreatePrizeButton;
         private System.Windows.Forms.Label TeamsPlayersLabel;
-        private System.Windows.Forms.ListBox TournamentPlayersListBox;
-        private System.Windows.Forms.Button DeleteTeamButton;
-        private System.Windows.Forms.Button DeletePrize;
+        private System.Windows.Forms.ListBox TeamMembersListBox;
+        private System.Windows.Forms.Button RemoveTeamButton;
+        private System.Windows.Forms.Button RemovePrize;
         private System.Windows.Forms.ListBox PrizesListBox;
         private System.Windows.Forms.Label PrizesLabel;
         private System.Windows.Forms.Button CreateTournamentButton;

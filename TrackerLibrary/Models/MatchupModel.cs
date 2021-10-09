@@ -7,6 +7,11 @@ namespace TrackerLibrary.Model
     public class MatchupModel
     {
         /// <summary>
+        /// Unique Identifier for Matchups
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// The list of Teams, with their caracteristics which take part in this Matchup
         /// Has to be greater than 2 [>=2]
         /// </summary>
