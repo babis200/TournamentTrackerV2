@@ -59,10 +59,7 @@ namespace TrackerUI
             bool output = true;
             int placeNumber = 0;
 
-            if(!(int.TryParse(PlaceNumberText.Text, out placeNumber)))
-            {
-                output = false;
-            }
+            int.TryParse(PlaceNumberText.Text, out placeNumber);
 
             if (placeNumber < 1)
             {

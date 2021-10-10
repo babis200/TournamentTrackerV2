@@ -202,13 +202,27 @@ namespace TrackerLibrary.DataAccess
                         n = new DynamicParameters();
 
                         //Send data to SQL
-                        n.Add("@MatchupId", model.Id);
-                        n.Add("@ParentMatchupId", entry.ParentMatchup);
-                        n.Add("@TeamCompetingId", entry.TeamCompeting.Id);
+                        n.Add("@MatchupId", entry.Id);
+                        if (entry.ParentMatchup == null)
+                        {
+                            n.Add("@ParentMatchupId", null);
+                        }
+                        else
+                        {
+                            n.Add("@ParentMatchupId", entry.ParentMatchup.Id);
+                        }
+
+                        if (entry.TeamCompeting == null)
+                        {
+                            n.Add("@TeamCompetingId", null);
+                        }else
+                        {
+                            n.Add("@TeamCompetingId", entry.TeamCompeting.Id);
+                        }
                         //Receive Id from SQL
                         n.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                        connection.Execute("dbo.spMatchupsEntries_Insert", n, commandType: CommandType.StoredProcedure);
+                        connection.Execute("dbo.spMatchupEntries_Insert", n, commandType: CommandType.StoredProcedure);
 
                         //Store Id from sql to my model
                         matchup.Id = n.Get<int>("@Id");

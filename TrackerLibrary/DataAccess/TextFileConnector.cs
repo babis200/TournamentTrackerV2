@@ -9,11 +9,13 @@ namespace TrackerLibrary.DataAccess
 {
     public class TextFileConnector : IDataConnection
     {
+        //TODO - Make them obsolete by using GlobalConfig versions everywhere
         private const string PrizesFile = "PrizesModels.csv";
         private const string PeopleFile = "PeopleModels.csv";
         private const string TeamsFile = "TeamsModels.csv";
-        private const string TournamentFile = "TournamentsModel.csv";
-        
+        private const string TournamentFile = "TournamentsModels.csv";
+        private const string MatchupsFile = "MatchupsModels.csv";
+        private const string MatchupEntriesFile = "MatchupEntriesModels.csv";
 
         public PersonModel CreatePerson(PersonModel model)
         {
@@ -109,12 +111,13 @@ namespace TrackerLibrary.DataAccess
 
             //Add new record with its id
             model.Id = currentId;
+
+            model.SaveToRoundsFile();
+
             tournaments.Add(model);
 
             //Save new data to the text File
             tournaments.SaveToTournamentFile(TournamentFile);
-
-            
         }
 
         public List<PersonModel> GetPersonAll()

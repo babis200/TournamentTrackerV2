@@ -6,8 +6,17 @@ using TrackerLibrary.DataAccess;
 
 namespace TrackerLibrary
 {
+
     public static class GlobalConfig
     {
+
+        public const string PrizesFile = "PrizesModels.csv";
+        public const string PeopleFile = "PeopleModels.csv";
+        public const string TeamsFile = "TeamsModels.csv";
+        public const string TournamentFile = "TournamentsModels.csv";
+        public const string MatchupsFile = "MatchupsModels.csv";
+        public const string MatchupEntriesFile = "MatchupEntriesModels.csv";
+
         public static IDataConnection Connection { get; private set; }
 
         public static void InitializeConnections(DatabaseTypes db)

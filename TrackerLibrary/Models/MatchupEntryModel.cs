@@ -18,7 +18,7 @@ namespace TrackerLibrary.Model
         /// <summary>
         /// represents the score (points) by THIS particular team.
         /// </summary>
-        public int Score { get; set; }
+        public double Score { get; set; }
 
         /// <summary>
         /// Represents the Matchup from the previous Round, where thiw team came from
