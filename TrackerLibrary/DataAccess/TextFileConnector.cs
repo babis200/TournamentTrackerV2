@@ -99,7 +99,10 @@ namespace TrackerLibrary.DataAccess
         {
             //Load TextFile
             //Convert the text to TournamentModel
-            List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+            List<TournamentModel> tournaments = TournamentFile
+                                                .FullFilePath()
+                                                .LoadFile()
+                                                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
 
             int currentId = 1;
             if (tournaments.Count() > 0)
@@ -128,6 +131,14 @@ namespace TrackerLibrary.DataAccess
         public List<TeamModel> GetTeamsAll()
         {
             return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);                             
+        }
+
+        public List<TournamentModel> GetTournamentAll()
+        {
+            return TournamentFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile); 
         }
     }
 }

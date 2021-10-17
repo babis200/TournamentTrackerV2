@@ -78,7 +78,6 @@ namespace TrackerUI
             this.TeamNameBox.Name = "TeamNameBox";
             this.TeamNameBox.Size = new System.Drawing.Size(242, 29);
             this.TeamNameBox.TabIndex = 3;
-            
             // 
             // SelectMemberLabel
             // 
@@ -97,6 +96,7 @@ namespace TrackerUI
             this.SelectMemberCombo.Name = "SelectMemberCombo";
             this.SelectMemberCombo.Size = new System.Drawing.Size(246, 27);
             this.SelectMemberCombo.TabIndex = 5;
+            this.SelectMemberCombo.SelectedIndexChanged += new System.EventHandler(this.SelectMemberCombo_SelectedIndexChanged);
             // 
             // AddMemberButton
             // 

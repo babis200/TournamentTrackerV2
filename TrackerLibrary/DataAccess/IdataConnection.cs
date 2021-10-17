@@ -19,6 +19,6 @@ namespace TrackerLibrary.DataAccess
 
         List<PersonModel> GetPersonAll();
 
-
+        List<TournamentModel> GetTournamentAll();
     }
 }

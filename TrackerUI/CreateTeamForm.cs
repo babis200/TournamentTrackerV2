@@ -71,7 +71,6 @@ namespace TrackerUI
 
                 WireUpLists();
 
-
                 FirstNameTextBox.Text = "";
                 LastNameTextBox.Text = "";
                 EmailTextBox.Text = "";
@@ -157,6 +156,9 @@ namespace TrackerUI
             
         }
 
+        private void SelectMemberCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

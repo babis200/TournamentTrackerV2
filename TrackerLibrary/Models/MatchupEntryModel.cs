@@ -10,13 +10,24 @@ namespace TrackerLibrary.Model
         /// Unique Identifier for MatchupEntries
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// The ID from the database used to identify the opposing Team.
+        /// </summary>
+        public int TeamCompetingId { get; set; }
+
+        /// <summary>
+        /// The ID from the database used to identify the parentMatchup.
+        /// </summary>
+        public int ParentMatchupId { get; set; }
+
         /// <summary>
         /// Represents one team of the matcup
         /// </summary>
         public TeamModel TeamCompeting { get; set; }
 
         /// <summary>
-        /// represents the score (points) by THIS particular team.
+        /// Represents the score (points) by THIS particular team.
         /// </summary>
         public double Score { get; set; }
 
